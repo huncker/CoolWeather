@@ -59,7 +59,7 @@ public class Utility {
         //解析和处理服务器返回的县级数据
 
     }
-public static boolean handleCountResponse (String response ,int cityId){
+public static boolean handleCountyResponse (String response ,int cityId){
         if (!TextUtils.isEmpty(response)){
             try {
                 JSONArray allCounties = new JSONArray(response);
@@ -67,7 +67,7 @@ public static boolean handleCountResponse (String response ,int cityId){
                     JSONObject countyObject = allCounties.getJSONObject(i);
                     County county = new County();
                     county.setCountyName(countyObject.getString("name"));
-                    county.setCityId(countyObject.getInt("weather_id"));
+                    county.setWeatherId(countyObject.getString("weather_id"));
                     county.setCityId(cityId);
                     county.save();
                 }
